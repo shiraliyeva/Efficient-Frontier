@@ -14,3 +14,5 @@ Steps:
 2. Calculate returns & risk metrics
 3. Find the lowest-risk portfolio for each target return
 4. Plot results: Efficient Frontier scatter plot (risk vs return) & Bar chart showing asset weights for each portfolio
+
+<img width="1439" height="600" alt="Image" src="https://github.com/user-attachments/assets/d36a578a-7fa7-40a8-8ddb-940759d49be6" />
