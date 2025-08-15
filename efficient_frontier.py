@@ -59,7 +59,7 @@ def get_variance_monthly(ticker):
     growth_rates = get_monthly_growth_rate(ticker)
     sum_of_squared_differences = 0
     for growth in growth_rates:
-        difference = growth - (sum(growth_rates / len(growth_rates)))
+        difference = growth - (sum(growth_rates) / len(growth_rates))
         squared_difference = difference ** 2
         sum_of_squared_differences += squared_difference
     variance_monthly = sum_of_squared_differences / (len(growth_rates) - 1)
@@ -173,7 +173,7 @@ mask = np.arange(len(efficient_returns)) != id_cash_portfolio
 
 finite = np.isfinite(sharpe_ratio)
 # Quantile edges → 8 bands (can change if I want more/less)
-quantile_edges = np.linspace(0, 100, 12)                   # 0,12.5,...,100
+quantile_edges = np.linspace(0, 100, 8)                   # 0,12.5,...,100
 sharpe_bins = np.nanpercentile(sharpe_ratio, quantile_edges)
 sharpe_bins = np.unique(sharpe_bins)                       # guard against duplicates
 sharpe_cmap = plt.get_cmap('turbo')
