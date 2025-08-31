@@ -43,8 +43,20 @@ expected_monthly_growth = {
     for ticker in ten_stocks
 }
 
+def get_annualized_growth(monthly_growth_rates):
+    """
+    Calculate the compounded annualized growth (CAGR) from monthly growth rates.
+
+    Returns:
+    Annualized growth rate (CAGR).
+    """
+    growths = 1 + np.array(monthly_growth_rates)
+    total_growth = np.prod(growths)
+    num_years = len(growths) / 12
+    return total_growth ** (1 / num_years) - 1
+
 annualized_growth = {
-    ticker: (1 + expected_monthly_growth[ticker]) ** 12 - 1
+    ticker: get_annualized_growth(monthly_growth_rates[ticker])
     for ticker in ten_stocks
 }
 
